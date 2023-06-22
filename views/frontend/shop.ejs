@@ -1,0 +1,20 @@
+<%- include('../header.ejs') %>
+
+    <body>
+        <%- include('../navigation.ejs') %>
+            <content class="content">
+                <h1>Shop page</h1>
+
+                <% products.forEach(function(products) { %>
+                    <div class="card">
+                        <img src="https://image.shutterstock.com/image-photo/open-book-on-white-background-260nw-523462210.jpg" 
+                        alt="Avatar" width="200px" height="200px">
+                        <div class="container">
+                            <p> Name:<%= products.title %>
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                    <% }); %>
+            </content>
+            <%- include('../footer.ejs') %>

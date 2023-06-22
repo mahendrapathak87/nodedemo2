@@ -1,0 +1,10 @@
+<%- include('../header.ejs') %>
+    <body>
+        <%- include('../navigation.ejs') %>
+        <content class="content">
+            <form method="POST" action="saveproduct">
+                <input type="text" name="name" /> 
+                <input type="submit" value="submit" />
+            </form>
+        </content>
+<%- include('../footer.ejs') %>
