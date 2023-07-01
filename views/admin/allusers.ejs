@@ -1,0 +1,35 @@
+<%- include('../header.ejs') %>
+
+    <body>
+        <%- include('../navigation.ejs') %>
+            <content class="content">
+                <h1>User list</h1>
+                <% if(users.length) { %>
+                    <% users.forEach(function(user) { %>
+                        <div class="card">
+                            
+                            <div class="container">
+                                <p> Username:<%= user.username %>
+                                </p>
+                                <p> Email: <%= user.email %>
+                                </p>
+
+                            </div>
+                            <div class="inlinebuttons">
+                                <form action="/admin/deleteuser" method="POST">
+                                    <input type="hidden" name="userid" value="<%= user._id %>" />
+                                    <input type="submit" value="Delete" />
+                                </form>
+
+                            </div>
+                            <div class="inlinebuttons">
+                                <p><a href="/admin/updateuser/<%= user._id %>" class="linkbutton">Update</a></p>
+                            </div>
+                        </div>
+                        </div>
+                        <% }); %>
+                            <% } else { %>
+                                <p>No Users found</p>
+                                <% } %>
+            </content>
+            <%- include('../footer.ejs') %>

@@ -5,13 +5,23 @@
             <content class="content">
                 <h1>Shop page</h1>
 
-                <% products.forEach(function(products) { %>
+                <% products.forEach(function(product) { %>
                     <div class="card">
                         <img src="https://image.shutterstock.com/image-photo/open-book-on-white-background-260nw-523462210.jpg" 
                         alt="Avatar" width="200px" height="200px">
                         <div class="container">
-                            <p> Name:<%= products.title %>
-                            </p>
+                            <p> Name:<%= product.title %></p>
+                            <p> Price: $<%= product.price %></p>
+
+                        </div>
+                        <div>
+                            <p><a href="/viewproduct/<%= product._id %>" class="linkbutton">View Product</a></p>
+                        </div>
+                        <div>
+                            <form action="/frontend/addtocart" method="POST">
+                                <input type="hidden" name="prodid" value="<%= product._id %>" />
+                                <input type="submit" value="Add to Cart" />
+                            </form>
                         </div>
                     </div>
                     </div>

@@ -1,0 +1,39 @@
+<%- include('../header.ejs') %>
+
+    <body>
+        <%- include('../navigation.ejs') %>
+            <content class="content">
+                <h1>Shop page</h1>
+                <% if(products.length) { %>
+                    <% products.forEach(function(product) { %>
+                        <div class="card">
+                            <img src="https://image.shutterstock.com/image-photo/open-book-on-white-background-260nw-523462210.jpg"
+                                alt="Avatar" width="200px" height="200px">
+                            <div class="container">
+                                <p> Name:<%= product.title %>
+                                </p>
+                                <p> Price: $<%= product.price %>
+                                </p>
+
+                            </div>
+                            <div class="inlinebuttons">
+                                <p><a href="/viewproduct/<%= product._id %>" class="linkbutton">View Product</a></p>
+                            </div>
+                            <div class="inlinebuttons">
+                                <form action="deleteproduct" method="POST">
+                                    <input type="hidden" name="prodid" value="<%= product._id %>" />
+                                    <input type="submit" value="Delete" />
+                                </form>
+
+                            </div>
+                            <div class="inlinebuttons">
+                                <p><a href="/admin/updateproduct/<%= product._id %>" class="linkbutton">Update Product</a></p>
+                            </div>
+                        </div>
+                        </div>
+                        <% }); %>
+                            <% } else { %>
+                                <p>No products found</p>
+                                <% } %>
+            </content>
+            <%- include('../footer.ejs') %>

@@ -1,6 +1,7 @@
 const express = require('express');
 const pagenotfound = require('./controller/controller404');
-const mongoConnection = require('./util/mongodb');
+const mongoConnection = require('./util/mongodb').mongoConnect;
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 
@@ -20,8 +21,17 @@ app.use(shopRoute);
 app.use(pagenotfound.page404);
 
 
-//mongoConnection(client => {
-    //console.log(client);
+ mongoConnection(() => {
     app.listen(7070);
-//});
+});
+
+
+/*mongoose
+.connect('URI')
+.then(res => {
+    app.listen(7070);
+})
+.catch(err => {
+    console.log(err);
+});*/
 

@@ -2,6 +2,8 @@
 <body>
    <%- include('../navigation.ejs') %>
     <content class="content">
-        <h1>Product view</h1>
+        <h1>Title: <%= title %></h1>
+        <p>Price: <%= productInfo.price %></p>
+        <p>Description: <%= content %></p>
     </content>
 <%- include('../footer.ejs') %>

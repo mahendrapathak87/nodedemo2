@@ -1,0 +1,38 @@
+<%- include('../header.ejs') %>
+    <body>
+        <%- include('../navigation.ejs') %>
+        <content class="content">
+            <div class="container">
+                <h1><%= title %></h1>
+                <form  method="POST" action="/frontend/loginpost">
+                  
+
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="email">Email</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="email" id="email" name="email" placeholder="email" 
+                      value="">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="Password">Password</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="password" id="password" name="password" 
+                        placeholder="password"  value =""
+                         >
+                    </div>
+                  </div>
+
+  
+                  <div class="row">
+                    <input type="submit" value="Submit">
+                  </div>
+                </form>
+              </div>
+        </content>
+<%- include('../footer.ejs') %>

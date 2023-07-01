@@ -1,0 +1,63 @@
+<%- include('../header.ejs') %>
+    <body>
+        <%- include('../navigation.ejs') %>
+        <content class="content">
+            <div class="container">
+                <h1><%= title %></h1>
+                <form  method="POST" action="/admin/saveuser">
+                  <input type="hidden" name="userid" value="<%= (user && user._id) ? user._id : '' %>" />
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="username">User Name</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id="username" name="username" placeholder="Your user name.." 
+                      value="<%= (user && user.username) ? user.username : '' %>">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="email">Email</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="email" id="email" name="email" placeholder="email" 
+                      value="<%= (user && user.email) ? user.email : '' %>">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="Password">Password</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="password" id="password" name="password" 
+                        placeholder="password"  value ="<%= (user && user.password) ? user.password : '' %>"
+                         >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="Phonenumber">Phonenumber</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id=phonenumber" name="phonenumber" 
+                        placeholder="phonenumber" value="<%= (user && user.phone) ? user.phone : '' %>" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="address">Address</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id=address" name="address" 
+                        placeholder="address" value="<%= (user && user.address) ? user.address : '' %>"
+                         >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <input type="submit" value="Submit">
+                  </div>
+                </form>
+              </div>
+        </content>
+<%- include('../footer.ejs') %>
